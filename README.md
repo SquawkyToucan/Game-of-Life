@@ -27,5 +27,22 @@ To
 fill(random(255), random(255), random(255));
 ```
 
-Thanks for reading!
+Also, the spawning method spawns squares at the start by random, beginning with a 10% chance. It's done like this:
+
+```
+public void randomizeCells() {
+  for (int x = 0; x < 900; x++) {
+    for (int y = 0; y < 900; y++) {
+      float z = random(1);
+      if (z > 0.9) {
+        cells[x][y] = true;
+      } else {
+        cells[x][y] = false;
+      }
+    }
+  }
+}
+```
+
+For more spawns, change it to a lower number from 0-1 in "if (z > 0.9)", and for less spawns, make the tariff higher (up to 0.99 or you'll have almost no spawns!).
 
